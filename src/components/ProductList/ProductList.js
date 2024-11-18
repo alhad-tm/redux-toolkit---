@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import products from "../../api/products.json";
 import BeforeCart from "./CartButtons/BeforeCart";
 import AfterCart from "./CartButtons/AfterCart";
+import { useSelector } from "react-redux";
 
 const ProductList = ({addToCart,addCount,count,lessCount}) => {
 
-  
+ const {cartCount}= useSelector((state)=>state.cart)
+
+
+ 
   return (
     <div className="container flex items-center justify-around ">
       {products.map((product, key) => (
@@ -13,7 +17,7 @@ const ProductList = ({addToCart,addCount,count,lessCount}) => {
           <img className="w-[220px] h-[280px]" src={product.image} />
           <span className="text-2xl">{product.title} </span>
  
- {count>0 ?  <AfterCart addCount={addCount} count={count} lessCount={lessCount}/> : <BeforeCart  addToCart={addToCart}/> }          
+ {cartCount>0 ?  <AfterCart /> : <BeforeCart /> }          
      
          
         </div> 
