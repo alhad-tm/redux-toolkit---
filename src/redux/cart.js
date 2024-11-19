@@ -1,9 +1,12 @@
+
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE={
-    cartList:[],
-    cartCount:0
+    cartCount:0,
+    addToCart:[]
 }
+
 
 const cartSlice=createSlice({
     name:"cart",
@@ -17,15 +20,15 @@ const cartSlice=createSlice({
         },
         decrement:(state)=>{
             state.cartCount-=1
-        }
+        }    
 
-
-    }
+    } 
 })
 
-export const {addToCart,increment,decrement}= cartSlice.actions
+export const {addToCart,increment,decrement}=cartSlice.actions
 
-export default cartSlice.reducer 
+export default cartSlice.reducer
+ 
 
 
 
@@ -44,74 +47,3 @@ export default cartSlice.reducer
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { createSlice } from "@reduxjs/toolkit";
-
-
-// const INITIAL_STATE=[{
-//     cartList:[],
-//     cartCount:60
-// }
-// ]
-
-// const cartSlice= createSlice({
-//     name:"cart",
-//     initialState:INITIAL_STATE,
-//     reducers:{
-//         addToCart:(state)=>{
-//             state.cartCount=1
-//         },
-//         increment:(state)=>{
-//            state.cartCount+=1
-//         },
-//         decrement:(state)=>{
-//             state.cartCount-=1
-//         }
-//     }
-// })
-
-// export const {addToCart,increment,decrement}= cartSlice.actions
-
-// export default cartSlice.reducer  
