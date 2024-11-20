@@ -1,14 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-import ProductList from "./components/ProductList/ProductList";
-import Header from "./components/Header/Header";
+import {ProductList,Header} from "./components";
+
 
 function App() {
-  return (
+  return ( 
     <div className="App">
       <Header />
-      <ProductList />
+      <ProductList /> 
     </div>
   );
 }

@@ -3,24 +3,20 @@ import products from "../../api/products.json";
 import BeforeCart from "./CartButtons/BeforeCart";
 import AfterCart from "./CartButtons/AfterCart";
 import { useSelector } from "react-redux";
-
-
+import CartButtons from "./CartButtons";
 
 const ProductList = () => {
+  const { cartCount,cartList } = useSelector((state) => state.cart);
 
-  const {cartCount}= useSelector((state)=>state.cart) 
-
-
-
-
+  console.log(cartList,'clist');
+  
   return (
     <div className="container flex items-center justify-around ">
-      {products.map((product, key) => (
-        <div className="flex flex-col gap-4 bg-yellow-700 p-8 " key={key}>
-          <img className="w-[220px] h-[280px]" src={product.image} />
-          <span className="text-2xl">{product.title} </span>
-
-    {cartCount>0 ?<AfterCart />   :   <BeforeCart />}       
+      {products?.map((product, key) => (
+        <div className="flex flex-col gap-4 p-8 w-1/4 " key={key}>
+          <img className="h-[450px]" src={product?.image} />
+          <span className="text-2xl">{product?.title} </span>
+                <CartButtons  productID={product.id}/>
         </div>
       ))}
     </div>
